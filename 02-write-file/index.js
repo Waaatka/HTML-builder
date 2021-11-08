@@ -12,6 +12,9 @@ fs.open(path.join(__dirname, 'text.txt'), 'w').then((file) => {
   rl.setPrompt('Enter your text: ');
   rl.prompt();
   rl.on('line', (line) => {
+    if (line === 'exit') {
+      process.exit()
+    }
     stream.write(line + '\n');
     rl.prompt();
   });
